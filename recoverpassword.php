@@ -41,7 +41,6 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
     key=' . $key . '&email=' . $email . '&action=reset" target="_blank">
     http://192.168.0.17/login/reset-password.php
     ?key=' . $key . '&email=' . $email . '&action=reset</a></p>';
-        print $output;
         $output .= '<p>-------------------------------------------------------------</p>';
         $output .= '<p>Please be sure to copy the entire link into your browser.
     The link will expire after 1 day for security reason.</p>';

@@ -82,7 +82,7 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         <label><strong>Enter Your Email Address:</strong></label><br/><br/>
         <input type="email" name="email" placeholder="username@email.com"/>
         <br/><br/>
-        <input type="submit" value="Reset Password"/>
+        <input type="submit" value="Reset Password" name="reset"/>
     </form>
     <p>&nbsp;</p>
     <p>&nbsp;</p>

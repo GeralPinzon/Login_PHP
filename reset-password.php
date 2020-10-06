@@ -5,6 +5,7 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
     $key = $_GET["key"];
     $email = $_GET["email"];
     $curDate = date("Y-m-d H:i:s");
+    $error = null;
     $query = mysqli_query($conexionMySQLi,
         "SELECT * FROM `password_reset_temp` WHERE `key`='".$key."' and `email`='".$email."';"
     );
@@ -14,7 +15,7 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
 <p>The link is invalid/expired. Either you did not copy the correct link
 from the email, or you have already used the key in which case it is 
 deactivated.</p>
-<p><a href="https://www.allphptricks.com/forgot-password/index.php">
+<p><a href="https://192.168.0.17/login/index.php">
 Click here</a> to reset password.</p>';
     }else{
         $row = mysqli_fetch_assoc($query);
@@ -41,7 +42,7 @@ Click here</a> to reset password.</p>';
 as valid only 24 hours (1 days after request).<br /><br /></p>";
         }
     }
-    if($error!=""){
+    if($error!=null){
         echo "<div class='error'>".$error."</div><br />";
     }
 } // isset email key validate end

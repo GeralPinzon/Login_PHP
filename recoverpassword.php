@@ -1,23 +1,24 @@
 <?php
+
 include('database.php');
 if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
     $email = $_POST["email"];
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-    $error ='';
-    if (!$email)
-        $error .= "<p>Invalid email address please type a valid email address!</p>";
+    $error = null;
+
+    if (!$email) {
+        $error = "<p> Invalid email address please type a valid email address!</p>";
     } else {
-        $sel_query = "SELECT * FROM AppEndBot.login WHERE Correo = '$email'";
-        $results = mysqli_query($conn, $sel_query);
+        $query = "SELECT * FROM login WHERE Correo = '$email'";
+        $results = mysqli_query($conexionMySQLi, $query);
         $row = mysqli_num_rows($results);
-        $error = $results;
-        if ($row == "") {
-            $error .= "<p>No user is registered with this email address!<br>  </p>";
-            $error .=  $sel_query;
+        if ($row == null) {
+            $error = "<p>No user is registered with this email address!<br>  </p>";
         }
+
     }
-    if ($error != "") {
+    if ($error != null) {
         echo "<div class='error'>" . $error . "</div>
        <br /><a href='javascript:history.go(-1)'>Go Back</a>";
     } else {
@@ -29,9 +30,10 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
         $key = $key . $addKey;
         // Insert Temp Table
-        mysqli_query($conn,
-            "INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`)
-    VALUES ('" . $email . "', '" . $key . "', '" . $expDate . "');");
+        $query_insertDB = "INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`)
+    VALUES ('" . $email . "', '" . $key . "', '" . $expDate . "');";
+
+        mysqli_query($conexionMySQLi, $query_insertDB);
 
         $output = '<p>Dear user,</p>';
         $output .= '<p>Please click on the following link to reset your password.</p>';

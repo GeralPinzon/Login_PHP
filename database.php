@@ -4,11 +4,12 @@ $port = '3306';
 $username = 'root';
 $password = 'AppEnd_mysql';
 $database = 'AppEndBot';
+$server_host = $server . ":" . $port;
 
 try {
-    //$conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
-    $conn = mysqli_connect($server, $username, $password, $database, $port);
+    $conexionPDO = new PDO("mysql:host=$server_host;dbname=$database;", $username, $password);
+    $conexionMySQLi = mysqli_connect($server, $username, $password, $database, $port);
 } catch (PDOException $e) {
-    die('Connection Failed: ' . $e->getMessage(). ' →'.mysqli_error());
+    die('Connection Failed: ' . $e->getMessage() . ' →' . mysqli_error());
 }
 ?>

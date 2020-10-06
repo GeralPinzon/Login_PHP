@@ -52,7 +52,6 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $output .= '<p>AppEnd Team</p>';
         $body = $output;
         $subject = "Password Recovery ";
-        print $body;
         $email_to = $email;
         $fromserver = "geraldinpinzon04@gmail.com";
         require("PHPMailer/PHPMailerAutoload.php");

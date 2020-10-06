@@ -52,7 +52,6 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $body = $output;
         $subject = "Password Recovery ";
         $email_to = $email;
-        print $email_to;
         $fromserver = "geraldinpinzon04@gmail.com";
         require("PHPMailer/PHPMailerAutoload.php");
         $mail = new PHPMailer();
@@ -70,9 +69,10 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $mail->Body = $body;
         $mail->AddAddress($email_to);
         if (!$mail->Send()) {
-            print ' Emntree';
+
             echo "Mailer Error: " . $mail->ErrorInfo;
         } else {
+            print ' Emntree';
             echo "<div class='error'>
     <p>An email has been sent to you with instructions on how to reset your password.</p>
     </div><br /><br /><br />";

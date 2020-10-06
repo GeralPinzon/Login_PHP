@@ -58,7 +58,7 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         require("PHPMailer/PHPMailerAutoload.php");
         $mail = new PHPMailer();
         $mail->IsSMTP();
-        $mail->Host = "geraldinpinzon04@gmail.com"; // Enter your host here
+        $mail->Host = "192.168.0.17"; // Enter your host here
         $mail->SMTPAuth = true;
         $mail->Username = "geraldinpinzon04@gmail.com"; // Enter your email here
         $mail->Password = "geral29pinzon"; //Enter your password here

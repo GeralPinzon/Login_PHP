@@ -37,9 +37,9 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $output = '<p>Dear user,</p>';
         $output .= '<p>Please click on the following link to reset your password.</p>';
         $output .= '<p>-------------------------------------------------------------</p>';
-        $output .= '<p><a href="http://192.168.0.17/login/reset-password.php?
+        $output .= '<p><a href="192.168.0.17/login/reset-password.php?
     key=' . $key . '&email=' . $email . '&action=reset" target="_blank">
-    http://192.168.0.17/login/reset-password.php
+    192.168.0.17/login/reset-password.php
     ?key=' . $key . '&email=' . $email . '&action=reset</a></p>';
         $output .= '<p>-------------------------------------------------------------</p>';
         $output .= '<p>Please be sure to copy the entire link into your browser.
@@ -52,6 +52,7 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $body = $output;
         $subject = "Password Recovery ";
         $email_to = $email;
+        print $email_to;
         $fromserver = "geraldinpinzon04@gmail.com";
         require("PHPMailer/PHPMailerAutoload.php");
         $mail = new PHPMailer();
@@ -69,6 +70,7 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $mail->Body = $body;
         $mail->AddAddress($email_to);
         if (!$mail->Send()) {
+            print ' Emntree';
             echo "Mailer Error: " . $mail->ErrorInfo;
         } else {
             echo "<div class='error'>
@@ -82,7 +84,7 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         <label><strong>Enter Your Email Address:</strong></label><br/><br/>
         <input type="email" name="email" placeholder="username@email.com"/>
         <br/><br/>
-        <input type="submit" value="Reset Password" name="reset"/>
+        <input type="submit" value="Reset Password"/>
     </form>
     <p>&nbsp;</p>
     <p>&nbsp;</p>

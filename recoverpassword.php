@@ -68,13 +68,21 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $mail->Subject = $subject;
         $mail->Body = $body;
         $mail->AddAddress($email_to);
+        if(!$mail->Sender()){
+            echo "Mailer Error: " .$mail->ErrorInfo;
+        }else{
+            echo "<div class='bad'>
+                <p>An email has been sent to you with instructions on how to reset your password.</p>
+                </div><br /><br /><br />";
+        }
+        /*
         if (!$mail->Send()) {
 
             echo "Mailer Error: " . $mail->ErrorInfo;
         } else {
             print ' Emntree';
             print 'An email has been sent to you with instructions on how to reset your password.';
-        }
+        }*/
     }
 } else {
     ?>

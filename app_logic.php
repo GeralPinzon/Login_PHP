@@ -45,16 +45,14 @@ if (isset($_POST['reset-password'])) {
             $output = '<p>Dear user,</p>';
             $output .= '<p>Please click on the following link to reset your password.</p>';
             $output .= '<p>-------------------------------------------------------------</p>';
-            $output .= '<p><a href="192.168.0.17/login/new_pass.php?
-    key=' . $key . '&email=' . $email . '&action=reset" target="_blank">
-    192.168.0.17/login/new_pass.php
-    ?key=' . $key . '&email=' . $email . '&action=reset</a></p>';
+            $output .= '<p><a href="192.168.0.17/login/new_pass.php?key=' . $key . '&email=' . $email . '&action=reset" target="_blank">
+                        192.168.0.17/login/new_pass.php?key=' . $key . '&email=' . $email . '&action=reset</a></p>';
             $output .= '<p>-------------------------------------------------------------</p>';
             $output .= '<p>Please be sure to copy the entire link into your browser.
-    The link will expire after 1 day for security reason.</p>';
+                        The link will expire after 1 day for security reason.</p>';
             $output .= '<p>If you did not request this forgotten password email, no action 
-    is needed, your password will not be reset. However, you may want to log into 
-    your account and change your security password as someone may have guessed it.</p>';
+                            is needed, your password will not be reset. However, you may want to log into 
+                            your account and change your security password as someone may have guessed it.</p>';
             $output .= '<p>Thanks,</p>';
             $output .= '<p>AppEnd Team</p>';
             $body = $output;
@@ -85,14 +83,6 @@ if (isset($_POST['reset-password'])) {
                 <p>An email has been sent to you with instructions on how to reset your password.</p>
                 <br /><br /><br />";
             }
-            /* Send email to user with the token in a link they can click on
-            $to = $email;
-            $subject = "Reset your password on examplesite.com";
-            $msg = "Hi there, click on this <a href=\"new_pass.php?key=" . $key . "\">link</a> to reset your password on our site";
-            $msg = wordwrap($msg, 70);
-            $headers = "From: info@examplesite.com";
-            mail($to, $subject, $msg, $headers);
-            header('location: pending.php?email=' . $email);*/
         }
     }
 }

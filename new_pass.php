@@ -22,9 +22,9 @@ Click here</a> to reset password.</p>';
         $row = mysqli_fetch_assoc($query);
         $expDate = $row['expDate'];
         if ($expDate >= $curDate){
+            include('enter_pass.php');
             ?>
-            <br />
-            </form>
+                <!--
             <form method="POST" action="" name="update">
                 <input type="hidden" name="action" value="update" />
                 <br /><br />
@@ -34,7 +34,7 @@ Click here</a> to reset password.</p>';
                 <input type="password" name="pass2" id="pass2" placeholder="Enter your new password">
                 <input type="hidden" name="email" value="<?php echo $email;?>"/>
                 <input type="submit" value="Submit">
-            </form>
+            </form>*/-->
             <?php
         }else{
             $error .= "<h2>Link Expired</h2>
@@ -91,13 +91,15 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
 <div class="login">
     <img class="logo" src="Imagenes/logo efecto.png" alt="Fondo">
     <h1>New password</h1>
-    <form method="POST">
-
-        <label for="email">New password</label>
-        <input type="password" name="new_pass_c" id="new_pass" placeholder="Enter your new password">
+    <form method="POST" action="" name="update">
+        <input type="hidden" name="action" value="update" />
+        <br /><br />
+        <label>New password</label>
+        <input type="password" name="pass1" id="pass1" placeholder="Enter your new password">
         <label for="email">Confirm new password</label>
-        <input type="password" name="new_pass_c" id="new_pass_c" placeholder="Enter your new password">
-        <input type="submit" name="new_password" value="Submit">
+        <input type="password" name="pass2" id="pass2" placeholder="Enter your new password">
+        <input type="hidden" name="email" value="<?php echo $email;?>"/>
+        <input type="submit" value="Submit">
     </form>
 
 </div>

@@ -1,7 +1,7 @@
 <?php
 include('database.php');
 if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
-    && ($_GET["action"]=="reset") && !isset($_POST["action"])){
+    && ($_GET["action"]=="reset") ){
     $key = $_GET["key"];
     echo $key;
     $email = $_GET["email"];

@@ -16,6 +16,8 @@
     <form method="POST">
         <!--Username-->
         <label for="email">New password</label>
+        <input type="password" name="new_pass_c" id="new_pass" placeholder="Enter your new password">
+        <label for="email">Confirm new password</label>
         <input type="password" name="new_pass_c" id="new_pass_c" placeholder="Enter your new password">
         <input type="submit" name="new_password" value="Submit">
     </form>

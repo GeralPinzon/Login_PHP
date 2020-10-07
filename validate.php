@@ -4,7 +4,7 @@
     require 'database.php';
     if (isset($_POST['enviar'])) {
         if(!empty($_POST['nombre']) && !empty($_POST['password'])){
-            $records=$conexionMySQLi ->prepare('SELECT ID, login, clave FROM login WHERE login = :nombre');
+            $records=$conexionPDO->prepare('SELECT ID, login, clave FROM login WHERE login = :nombre');
             $records->bindParam(':nombre', $_POST['nombre']); /*vinncular valores*/ 
             $records->execute();/*ejecuto consulta*/
             $results = $records->fetch(PDO::FETCH_ASSOC); /*obtener datos usuario    */

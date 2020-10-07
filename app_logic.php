@@ -62,7 +62,7 @@ if (isset($_POST['reset-password'])) {
             $email_to = $email;
             $fromserver = "smtp.gmail.com";
 
-            $mail = new PHPMailer();
+            $mail = new PHPMailer(TRUE);
             $mail->IsSMTP();
             $mail->Host = "smtp.gmail.com"; // Enter your host here
             $mail->SMTPAuth = true;

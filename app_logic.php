@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include('database.php');
 include_once(FCPATH.'PHPMailer/src/PHPMailer.php');
 include_once(FCPATH.'PHPMailer/src/SMTP.php');
@@ -60,7 +62,7 @@ if (isset($_POST['reset-password'])) {
             $email_to = $email;
             $fromserver = "smtp.gmail.com";
 
-            $mail = new PHPMailer\PHPMailer\PHPMailer();
+            $mail = new PHPMailer(true);
             $mail->IsSMTP();
             $mail->Host = "smtp.gmail.com"; // Enter your host here
             $mail->SMTPAuth = true;

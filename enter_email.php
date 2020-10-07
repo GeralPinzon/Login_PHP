@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include('app_logic.php'); ?>
 <html>
 <head>
     <!-- Esttodo esto esta en recoverpassword -->
@@ -19,7 +20,7 @@
             <input type="email" name="email" id="email" placeholder="Enter your email">
             <input type="submit" name="reset-password" value="Send">
         </form>
-        <?php include ("recuperar_contraseña.php");?>
+
     </div>
 </body>
 </html>

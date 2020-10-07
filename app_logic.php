@@ -1,4 +1,3 @@
-/*
 <?php
 include('database.php');
 session_start();
@@ -34,9 +33,9 @@ if (isset($_POST['reset-password'])) {
             $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
             $key = $key . $addKey;
             // Insert Temp Table
-            $query_insertDB = "INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`)
+            $query_insertDB = "INSERT INTO password_reset_temp (`email`, `key`, `expDate`)
             VALUES ('" . $email . "', '" . $key . "', '" . $expDate . "');";
-
+            mysqli_query($conexionMySQLi,$query_insertDB);
 
             $output = '<p>Dear user,</p>';
             $output .= '<p>Please click on the following link to reset your password.</p>';
@@ -79,8 +78,7 @@ if (isset($_POST['reset-password'])) {
                 <p>An email has been sent to you with instructions on how to reset your password.</p>
                 <br /><br /><br />";
             }
-            /*
-            // Send email to user with the token in a link they can click on
+            /* Send email to user with the token in a link they can click on
             $to = $email;
             $subject = "Reset your password on examplesite.com";
             $msg = "Hi there, click on this <a href=\"new_pass.php?key=" . $key . "\">link</a> to reset your password on our site";
@@ -93,6 +91,7 @@ if (isset($_POST['reset-password'])) {
 }
 
 // ENTER A NEW PASSWORD
+/*
 if (isset($_POST['new_password'])) {
     $new_pass = mysqli_real_escape_string($db, $_POST['new_pass']);
     $new_pass_c = mysqli_real_escape_string($db, $_POST['new_pass_c']);
@@ -114,6 +113,6 @@ if (isset($_POST['new_password'])) {
             header('location: index.php');
         }
     }
-}
+}*/
 ?>
 

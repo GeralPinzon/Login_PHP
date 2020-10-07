@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php include('app_logic.php'); ?>
+<!DOCTYPE html>
 <html>
 <head>
     <!-- Esttodo esto esta en recoverpassword -->
@@ -14,7 +14,7 @@
     <div class="login">
         <img class="logo" src="Imagenes/logo efecto.png" alt="Fondo">
         <h1>Enter your email address to reset password</h1>
-        <form method="POST">
+        <form method="POST" name="reset">
             <!--Username-->
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="Enter your email">

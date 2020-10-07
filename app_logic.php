@@ -37,6 +37,49 @@ if (isset($_POST['reset-password'])) {
             $query_insertDB = "INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`)
             VALUES ('" . $email . "', '" . $key . "', '" . $expDate . "');";
 
+
+            $output = '<p>Dear user,</p>';
+            $output .= '<p>Please click on the following link to reset your password.</p>';
+            $output .= '<p>-------------------------------------------------------------</p>';
+            $output .= '<p><a href="192.168.0.17/login/new_pass.php?
+    key=' . $key . '&email=' . $email . '&action=reset" target="_blank">
+    192.168.0.17/login/new_pass.php
+    ?key=' . $key . '&email=' . $email . '&action=reset</a></p>';
+            $output .= '<p>-------------------------------------------------------------</p>';
+            $output .= '<p>Please be sure to copy the entire link into your browser.
+    The link will expire after 1 day for security reason.</p>';
+            $output .= '<p>If you did not request this forgotten password email, no action 
+    is needed, your password will not be reset. However, you may want to log into 
+    your account and change your security password as someone may have guessed it.</p>';
+            $output .= '<p>Thanks,</p>';
+            $output .= '<p>AppEnd Team</p>';
+            $body = $output;
+            $subject = "Password Recovery ";
+            $email_to = $email;
+            $fromserver = "geraldinpinzon04@gmail.com";
+            require("PHPMailer/PHPMailerAutoload.php");
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->Host = "192.168.0.17"; // Enter your host here
+            $mail->SMTPAuth = true;
+            $mail->Username = "geraldinpinzon04@gmail.com"; // Enter your email here
+            $mail->Password = "geral29pinzon"; //Enter your password here
+            $mail->Port = 25;
+            $mail->IsHTML(true);
+            $mail->From = "geraldinpinzon04@gmail.com";
+            $mail->FromName = "AppEnd";
+            $mail->Sender = $fromserver; // indicates ReturnPath header
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+            $mail->AddAddress($email_to);
+            if(!$mail->Send()){
+                echo "Mailer Error: " . $mail->ErrorInfo;
+            }else{
+                echo "
+                <p>An email has been sent to you with instructions on how to reset your password.</p>
+                <br /><br /><br />";
+            }
+            /*
             // Send email to user with the token in a link they can click on
             $to = $email;
             $subject = "Reset your password on examplesite.com";
@@ -44,7 +87,7 @@ if (isset($_POST['reset-password'])) {
             $msg = wordwrap($msg, 70);
             $headers = "From: info@examplesite.com";
             mail($to, $subject, $msg, $headers);
-            header('location: pending.php?email=' . $email);
+            header('location: pending.php?email=' . $email);*/
         }
     }
 }

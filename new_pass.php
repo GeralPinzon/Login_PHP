@@ -1,7 +1,7 @@
 <?php
 include('database.php');
 if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
-    && ($_GET["action"]=="reset") ){
+    && ($_GET["action"]=="reset") && !isset($_POST["action"])){
     $key = $_GET["key"];
     echo $key;
     $email = $_GET["email"];
@@ -33,7 +33,7 @@ Click here</a> to reset password.</p>';
                 <label for="email">Confirm new password</label>
                 <input type="password" name="pass2" id="pass2" placeholder="Enter your new password">
                 <input type="hidden" name="email" value="<?php echo $email;?>"/>
-                <input type="submit" name="Reset Password" value="Submit">
+                <input type="submit" value="Submit">
             </form>
             <?php
         }else{
@@ -63,7 +63,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     }else{
         $pass1 = md5($pass1);
         mysqli_query($conexionMySQLi,
-            "UPDATE `login` SET `password`='".$pass1."' WHERE `email`='".$email."';"
+            "UPDATE `login` SET `clave`='".$pass1."' WHERE `Correo`='".$email."';"
         );
 
         mysqli_query($conexionMySQLi,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");

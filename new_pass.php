@@ -61,7 +61,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     if($error!=""){
         echo "<div class='bad'>".$error."</div><br />";
     }else{
-        $pass1 = md5($pass1);
+        //$pass1 = md5($pass1);
         mysqli_query($conexionMySQLi,
             "UPDATE `login` SET `clave`='".$pass1."' WHERE `Correo`='".$email."';"
         );
@@ -69,8 +69,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
         mysqli_query($conexionMySQLi,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
 
         echo '<div class="bad"><p>Congratulations! Your password has been updated successfully.</p>
-<p><a href="192.168.0.17/login/index.php">
-Click here</a> to Login.</p></div><br />';
+        <p><a href="192.168.0.17/login/index.php">Click here</a> to Login.</p></div><br />';
     }
 }
 ?>

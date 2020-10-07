@@ -3,9 +3,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include('database.php');
 
-include_once(FCPATH.'/src/PHPMailer.php');
-include_once(FCPATH.'/src/SMTP.php');
-include_once(FCPATH.'/src/Exception.php');
+include('/src/PHPMailer.php');
+include('/src/SMTP.php');
+include('/src/Exception.php');
 
 session_start();
 $errors = null;

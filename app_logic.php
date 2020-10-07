@@ -1,5 +1,8 @@
 <?php
 include('database.php');
+include_once(FCPATH.'PHPMailer/src/PHPMailer.php');
+include_once(FCPATH.'PHPMailer/src/SMTP.php');
+include_once(FCPATH.'PHPMailer/src/Exception.php');
 session_start();
 $errors = null;
 $user_id = "";

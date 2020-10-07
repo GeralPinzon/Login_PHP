@@ -40,6 +40,13 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $headers = "From: geraldinpinzon04@gmail.com";
         mail($to, $subject, $msg, $headers);
         header('location: pending.php?email=' . $email);
+        if(!$msg->Send()){
+            echo "Mailer Error: " . $msg->ErrorInfo;
+        }else{
+            echo "
+                <p>An email has been sent to you with instructions on how to reset your password.</p>
+                <br /><br /><br />";
+        }
 /*
         $output = '<p>Dear user,</p>';
         $output .= '<p>Please click on the following link to reset your password.</p>';
@@ -75,13 +82,13 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $mail->Subject = $subject;
         $mail->Body = $body;
         $mail->AddAddress($email_to);
-        if(!$mail->Send()){
+        <if(!$mail->Send()){
             echo "Mailer Error: " . $mail->ErrorInfo;
         }else{
             echo "
                 <p>An email has been sent to you with instructions on how to reset your password.</p>
                 <br /><br /><br />";
-        }*/
+        }>*/
     }
 } else {
     ?>

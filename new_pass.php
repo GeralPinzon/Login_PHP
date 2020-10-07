@@ -3,6 +3,7 @@ include('database.php');
 if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
     && ($_GET["action"]=="reset") && !isset($_POST["action"])){
     $key = $_GET["key"];
+    echo $key;
     $email = $_GET["email"];
     $curDate = date("Y-m-d H:i:s");
     $error=null;

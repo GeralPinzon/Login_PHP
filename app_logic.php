@@ -61,7 +61,8 @@ if (isset($_POST['reset-password'])) {
             $subject = "Password Recovery ";
             $email_to = $email;
             $fromserver = "smtp.gmail.com";
-            $mail = new PHPMailer;
+            include('/usr/share/php/PHPMailer/PHPMailer6/autoload.php');
+            $mail = new PHPMailer();
             $mail->IsSMTP();
             $mail->SMTPDebug = 1;
             $mail->SMTPSecure = 'ssl';

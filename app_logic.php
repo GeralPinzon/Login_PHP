@@ -1,9 +1,10 @@
 <?php
-error_reporting(E_ALL);
 include('database.php');
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 require('/usr/share/php/PHPMailer/PHPMailer6/PHPMailer.php');
 require('/usr/share/php/PHPMailer/PHPMailer6/SMTP.php');
-require('/usr/share/php/PHPMailer/PHPMailer6/Exception.php');
+require('/usr/share/php/PHPMailer/PHPMailer6//Exception.php');
 session_start();
 $errors = null;
 $user_id = "";

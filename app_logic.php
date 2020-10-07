@@ -13,7 +13,7 @@ if (isset($_POST['reset-password'])) {
 
         if (!$email) {
             $errors .= "<p> Invalid email address please type a valid email address!</p>";
-        } else {
+        }else {
             $query = "SELECT * FROM login WHERE Correo = '$email'";
             $results = mysqli_query($conexionMySQLi, $query);
             $row = mysqli_num_rows($results);

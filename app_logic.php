@@ -3,9 +3,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include('database.php');
 
-include_once('/usr/share/php/PHPMailer/PHPMailer6/PHPMailer.php');
-include_once('/usr/share/php/PHPMailer/PHPMailer6/SMTP.php');
-include_once('/usr/share/php/PHPMailer/PHPMailer6/Exception.php');
+include('/usr/share/php/PHPMailer/PHPMailer6/PHPMailer.php');
+include('/usr/share/php/PHPMailer/PHPMailer6/SMTP.php');
+include('/usr/share/php/PHPMailer/PHPMailer6/Exception.php');
 
 session_start();
 $errors = null;

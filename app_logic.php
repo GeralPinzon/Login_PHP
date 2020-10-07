@@ -7,9 +7,7 @@ require_once('/usr/share/php/PHPMailer/PHPMailer6/SMTP.php');
 require_once('/usr/share/php/PHPMailer/PHPMailer6/Exception.php');
 require_once('/usr/share/php/PHPMailer/PHPMailer6/autoload.php');
 use PHPMailer\PHPMailer\PHPMailer;
-session_start();
 $errors = null;
-$user_id = "";
 if (isset($_POST['reset-password'])) {
     if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
         $email = $_POST["email"];
@@ -66,7 +64,7 @@ if (isset($_POST['reset-password'])) {
 
             $mail = new PHPMailer;
             $mail->IsSMTP();
-            $mail->SMTPDebug = 1;
+           // $mail->SMTPDebug = 1;
             $mail->SMTPSecure = 'ssl';
             $mail->Host = "smtp.gmail.com"; // Enter your host here
             $mail->SMTPAuth = true;
@@ -100,10 +98,9 @@ if (isset($_POST['reset-password'])) {
 }
 
 // ENTER A NEW PASSWORD
-/*
 if (isset($_POST['new_password'])) {
-    $new_pass = mysqli_real_escape_string($db, $_POST['new_pass']);
-    $new_pass_c = mysqli_real_escape_string($db, $_POST['new_pass_c']);
+    $new_pass = mysqli_real_escape_string($conexionMySQLi, $_POST['new_pass']);
+    $new_pass_c = mysqli_real_escape_string($conexionMySQLi, $_POST['new_pass_c']);
 
     // Grab to token that came from the email link
     $token = $_SESSION['token'];
@@ -122,6 +119,6 @@ if (isset($_POST['new_password'])) {
             header('location: index.php');
         }
     }
-}*/
+}
 ?>
 

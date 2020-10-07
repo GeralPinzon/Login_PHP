@@ -5,6 +5,7 @@ ini_set("display_errors", 1);
 require_once('/usr/share/php/PHPMailer/PHPMailer6/PHPMailer.php');
 require_once('/usr/share/php/PHPMailer/PHPMailer6/SMTP.php');
 require_once('/usr/share/php/PHPMailer/PHPMailer6/Exception.php');
+require_once('/usr/share/php/PHPMailer/PHPMailer6/autoload.php');
 session_start();
 $errors = null;
 $user_id = "";
@@ -61,7 +62,7 @@ if (isset($_POST['reset-password'])) {
             $subject = "Password Recovery ";
             $email_to = $email;
             $fromserver = "smtp.gmail.com";
-            include('/usr/share/php/PHPMailer/PHPMailer6/autoload.php');
+
             $mail = new PHPMailer();
             $mail->IsSMTP();
             $mail->SMTPDebug = 1;

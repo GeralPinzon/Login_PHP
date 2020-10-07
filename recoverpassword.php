@@ -33,7 +33,14 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
     VALUES ('" . $email . "', '" . $key . "', '" . $expDate . "');";
 
         mysqli_query($conexionMySQLi, $query_insertDB);
-
+        $to = $email;
+        $subject = "Reset your password";
+        $msg = "Hi there, click on this <a href=\"reset-password.php?token=" . $token . "\">link</a> to reset your password on our site";
+        $msg = wordwrap($msg,70);
+        $headers = "From: geraldinpinzon04@gmail.com";
+        mail($to, $subject, $msg, $headers);
+        header('location: pending.php?email=' . $email);
+/*
         $output = '<p>Dear user,</p>';
         $output .= '<p>Please click on the following link to reset your password.</p>';
         $output .= '<p>-------------------------------------------------------------</p>';
@@ -74,7 +81,7 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
             echo "
                 <p>An email has been sent to you with instructions on how to reset your password.</p>
                 <br /><br /><br />";
-        }
+        }*/
     }
 } else {
     ?>

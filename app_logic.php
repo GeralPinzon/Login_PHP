@@ -3,9 +3,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include('database.php');
 
-include('src/PHPMailer.php');
-include('src/SMTP.php');
-include('src/Exception.php');
+include_once(FCPATH.'PHPMailer/src/PHPMailer.php');
+include_once(FCPATH.'PHPMailer/src/SMTP.php');
+include_once(FCPATH.'PHPMailer/src/Exception.php');
 
 session_start();
 $errors = null;
@@ -63,7 +63,6 @@ if (isset($_POST['reset-password'])) {
             $subject = "Password Recovery ";
             $email_to = $email;
             $fromserver = "smtp.gmail.com";
-            require("PHPMailer/PHPMailerAutoload.php");
             $mail = new PHPMailer(true);
             $mail->IsSMTP();
             $mail->Host = "smtp.gmail.com"; // Enter your host here

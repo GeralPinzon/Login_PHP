@@ -58,7 +58,7 @@ as valid only 24 hours (1 days after request).<br /><br /></p>";
         }
     }
     if($error!=""){
-        echo "<div class='error'>".$error."</div><br />";
+        echo "<h3 class='bad'>".$error."</h3><br />";
     }
 } // isset email key validate end
 
@@ -71,7 +71,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     $email = $_POST["email"];
     $curDate = date("Y-m-d H:i:s");
     if ($pass1!=$pass2){
-        $error.= "<p>Password do not match, both password should be same.<br /><br /></p>";
+        $error.= "<h3 class='bad'>Password do not match, both password should be same.<br /><br /></h3>";
 
     }
     if($error!=""){
@@ -84,8 +84,8 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
 
         mysqli_query($conexionMySQLi,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
 
-        echo '<div class="bad"><p>Congratulations! Your password has been updated successfully.</p>
-        <p><a href="192.168.0.17/login/index.php">Click here</a> to Login.</p></div><br />';
+        echo '<h3 class="bad"><p>Congratulations! Your password has been updated successfully.</p>
+        <p><a href="192.168.0.17/login/index.php">Click here</a> to Login.</p></h3><br />';
         ?>
                 </div>
             </body>

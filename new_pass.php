@@ -3,7 +3,6 @@ include('database.php');
 if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
     && ($_GET["action"]=="reset") && !isset($_POST["action"])){
     $key = $_GET["key"];
-    echo $key;
     $email = $_GET["email"];
     $curDate = date("Y-m-d H:i:s");
     $error=null;
@@ -22,19 +21,35 @@ Click here</a> to reset password.</p>';
         $row = mysqli_fetch_assoc($query);
         $expDate = $row['expDate'];
         if ($expDate >= $curDate){
-            include('enter_pass.php');
+
             ?>
-                <!--
-            <form method="POST" action="" name="update">
-                <input type="hidden" name="action" value="update" />
-                <br /><br />
-                <label>New password</label>
-                <input type="password" name="pass1" id="pass1" placeholder="Enter your new password">
-                <label for="email">Confirm new password</label>
-                <input type="password" name="pass2" id="pass2" placeholder="Enter your new password">
-                <input type="hidden" name="email" value="<?php echo $email;?>"/>
-                <input type="submit" value="Submit">
-            </form>*/-->
+            <!DOCTYPE html>
+            <html>
+            <head>
+
+                <meta charset='utf-8'>
+                <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+                <title>Login</title>
+                <meta name='viewport' content='width=device-width, initial-scale=1'>
+                <link rel='stylesheet' type='text/css' href='css/styles.css'>
+                <script src='main.js'></script>
+            </head>
+            <body>
+            <div class="login">
+                <img class="logo" src="Imagenes/logo efecto.png" alt="Fondo">
+                <h1>New password</h1>
+                <form method="POST" action="" name="update">
+                    <input type="hidden" name="action" value="update" />
+                    <br /><br />
+                    <label>New password</label>
+                    <input type="password" name="pass1" id="pass1" placeholder="Enter your new password">
+                    <label for="email">Confirm new password</label>
+                    <input type="password" name="pass2" id="pass2" placeholder="Enter your new password">
+                    <input type="hidden" name="email" value="<?php echo $email;?>"/>
+                    <input type="submit" value="Submit">
+                </form>
+
+
             <?php
         }else{
             $error .= "<h2>Link Expired</h2>
@@ -57,6 +72,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     $curDate = date("Y-m-d H:i:s");
     if ($pass1!=$pass2){
         $error.= "<p>Password do not match, both password should be same.<br /><br /></p>";
+
     }
     if($error!=""){
         echo "<div class='bad'>".$error."</div><br />";
@@ -70,38 +86,14 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
 
         echo '<div class="bad"><p>Congratulations! Your password has been updated successfully.</p>
         <p><a href="192.168.0.17/login/index.php">Click here</a> to Login.</p></div><br />';
+        ?>
+                </div>
+            </body>
+        </html>
+        <?php
     }
 }
 ?>
 
 
 
-<!--<!DOCTYPE html>
-<html>
-<head>
-
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Login</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' href='css/styles.css'>
-    <script src='main.js'></script>
-</head>
-<body>
-<div class="login">
-    <img class="logo" src="Imagenes/logo efecto.png" alt="Fondo">
-    <h1>New password</h1>
-    <form method="POST" action="" name="update">
-        <input type="hidden" name="action" value="update" />
-        <br /><br />
-        <label>New password</label>
-        <input type="password" name="pass1" id="pass1" placeholder="Enter your new password">
-        <label for="email">Confirm new password</label>
-        <input type="password" name="pass2" id="pass2" placeholder="Enter your new password">
-        <input type="hidden" name="email" value="<?php echo $email;?>"/>
-        <input type="submit" value="Submit">
-    </form>
-
-</div>
-</body>
-</html>-->

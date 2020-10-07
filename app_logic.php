@@ -7,6 +7,7 @@ include_once(FCPATH.'PHPMailer/src/PHPMailer.php');
 include_once(FCPATH.'PHPMailer/src/SMTP.php');
 include_once(FCPATH.'PHPMailer/src/Exception.php');
 */
+require_once 'phpMailer/PHPMailer.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 session_start();

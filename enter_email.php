@@ -19,7 +19,7 @@
             <input type="email" name="email" id="email" placeholder="Enter your email">
             <input type="submit" name="reset-password" value="Send">
         </form>
-        <?php include ("recuperar_contraseña.php");?>
+        <?php include('app_logic.php'); ?>
     </div>
 </body>
 </html>

@@ -71,11 +71,13 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     $email = $_POST["email"];
     $curDate = date("Y-m-d H:i:s");
     if ($pass1!=$pass2){
-        $error.= "<p>Password do not match, both password should be same.<br /><br /></p>";
+        $error.= "Password do not match, both password should be same.";
 
     }
     if($error!=""){
-        echo "<div class='bad'>".$error."</div><br />";
+        ?>
+        <div class='bad'>".$error."</div><br />
+        <?php
     }else{
         //$pass1 = md5($pass1);
         mysqli_query($conexionMySQLi,

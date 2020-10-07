@@ -60,9 +60,9 @@ if (isset($_POST['reset-password'])) {
             $output .= '<p>Thanks,</p>';
             $output .= '<p>AppEnd Team</p>';
             $body = $output;
-            $subject = "Password Recovery ";
+            $subject = "Password Recovery";
             $email_to = $email;
-            $fromserver = "smtp.gmail.com";
+            $fromserver = "notificaciones.appendsolutions@gmail.com";
 
             $mail = new PHPMailer;
             $mail->IsSMTP();

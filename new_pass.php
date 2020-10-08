@@ -59,7 +59,7 @@
                 }
                 if($error!=""){
                     ?>
-                        <div><h3 class='bad'> <?php echo $error ?></h3></div>
+                         <h3><?php echo $error ?></h3>
                     <?php
                 }
             } // isset email key validate end
@@ -77,7 +77,7 @@
                 }
                 if($error!=""){
                     ?>
-                            <div><h3 class='bad'><?php echo $error ?></h3></div>
+                            <h3 class='bad'><?php echo $error ?></h3>
                     <?php
                 }else{
                     //$pass1 = md5($pass1);

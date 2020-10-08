@@ -25,7 +25,7 @@
                 );
                 $row = mysqli_num_rows($query);
                 if ($row==""){
-                    $error .= '<h3>Invalid Link</h3>
+                    $error .= 'Invalid Link
                                 The link is invalid/expired. Either you did not copy the correct link
                                 from the email, or you have already used the key in which case it is 
                                 deactivated.
@@ -87,7 +87,7 @@
 
                     mysqli_query($conexionMySQLi,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
                     ?>
-                            <h3 class="bad">Congratulations! Your password has been updated su2ccessfully.
+                            <h3 class="bad">Congratulations! Your password has been updated successfully.
                             <a href="/login/index.php">Click here</a> to Login.</h3>
                     <?php
                 }

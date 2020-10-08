@@ -75,9 +75,9 @@
                 if ($pass1!=$pass2){
                     $errors.= "Password do not match, both password should be same.";
                 }
-                if($error!=""){
+                if($errors!=""){
                     ?>
-                            <h3 class='bad'><?php echo $error ?></h3>
+                            <h3 class='bad'><?php echo $errors ?></h3>
                     <?php
                 }else{
                     //$pass1 = md5($pass1);

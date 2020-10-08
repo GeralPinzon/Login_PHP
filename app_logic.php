@@ -28,7 +28,8 @@ if (isset($_POST['reset-password'])) {
         }
         if ($errors != null) {
             echo "<div class='error'>" . $errors . "</div>
-               <br /><h3 class='bad'></h3><a href='javascript:history.go(-1)'>Go Back</a></h3>";
+               <br />
+               <h3 class='bad'><a href='javascript:history.go(-1)'>Go Back</a></h3>";
         } else {
             $expFormat = mktime(
                 date("H"), date("i"), date("s"), date("m"), date("d") + 1, date("Y")

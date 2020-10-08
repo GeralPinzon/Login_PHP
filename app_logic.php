@@ -1,7 +1,7 @@
 <?php
 include('database.php');
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+/*error_reporting(E_ALL);
+ini_set("display_errors", 1);*/
 require_once('/usr/share/php/PHPMailer/PHPMailer6/PHPMailer.php');
 require_once('/usr/share/php/PHPMailer/PHPMailer6/SMTP.php');
 require_once('/usr/share/php/PHPMailer/PHPMailer6/Exception.php');
@@ -16,13 +16,13 @@ if (isset($_POST['reset-password'])) {
 
 
         if (!$email) {
-            $errors .= "<p> Invalid email address please type a valid email address!</p>";
+            $errors .= "<h3 class='bad'> Invalid email address please type a valid email address!</h3>";
         }else {
             $query = "SELECT * FROM login WHERE Correo = '$email'";
             $results = mysqli_query($conexionMySQLi, $query);
             $row = mysqli_num_rows($results);
             if ($row == null) {
-                $errors .= "<p>No user is registered with this email address!<br>  </p>";
+                $errors .= "<h3 class='bad'>No user is registered with this email address!<br>  </h3>";
             }
 
         }
@@ -80,7 +80,7 @@ if (isset($_POST['reset-password'])) {
                 echo "Mailer Error: " . $mail->ErrorInfo;
             }else{
                 echo "
-                <p class='bad'>An email has been sent to you with instructions on how to reset your password.</p>
+                <h3 class='bad'>An email has been sent to you with instructions on how to reset your password.</h3>
                 <br /><br /><br />";
             }
         }

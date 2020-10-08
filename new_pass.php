@@ -85,7 +85,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
         mysqli_query($conexionMySQLi,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
 
         echo '<h3 class="bad"><p>Congratulations! Your password has been updated successfully.</p>
-        <p><a href="192.168.0.17/login/index.php">Click here</a> to Login.</p></h3><br />';
+        <p><a href="http://192.168.0.17/login/index.php">Click here</a> to Login.</p></h3><br />';
         ?>
                 </div>
             </body>

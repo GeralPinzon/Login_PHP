@@ -9,7 +9,7 @@
             $records->execute();/*ejecuto consulta*/
             $results = $records->fetch(PDO::FETCH_ASSOC); /*obtener datos usuario    */
             $message='';
-			print $results['login'];
+			/*print $results['login'];*/
             if($results == true && $_POST['password']==$results['clave']){
                 $_SESSION['user_id']=$results['id'];
                 header('Locationn: /php-index');

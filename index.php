@@ -20,7 +20,7 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="Enter Password">
             <input type="submit" value="Log In" name="enviar">
-            <a href="prueba.php">Lost your password?</a>
+            <a href="new_pass.php">Lost your password?</a>
         </form>
         <?php include ("validate.php");?>
     </div>

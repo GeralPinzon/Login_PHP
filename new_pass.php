@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='css/styles.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+<div class="login">
+    <img class="logo" src="Imagenes/logo efecto.png" alt="Fondo">
 <?php
 include('database.php');
 if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
@@ -23,20 +37,6 @@ Click here</a> to reset password.';
         if ($expDate >= $curDate){
 
             ?>
-            <!DOCTYPE html>
-            <html>
-            <head>
-
-                <meta charset='utf-8'>
-                <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-                <title>Login</title>
-                <meta name='viewport' content='width=device-width, initial-scale=1'>
-                <link rel='stylesheet' type='text/css' href='css/styles.css'>
-                <script src='main.js'></script>
-            </head>
-            <body>
-            <div class="login">
-                <img class="logo" src="Imagenes/logo efecto.png" alt="Fondo">
                 <h1>New password</h1>
                 <form method="POST" action="" name="update">
                     <input type="hidden" name="action" value="update" />
@@ -77,7 +77,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     }
     if($error!=""){
         ?>
-                <div class='bad'>"<php?.$error."</div>
+                <div class='bad'><?php $error ?></div>
         <?php
     }else{
         //$pass1 = md5($pass1);

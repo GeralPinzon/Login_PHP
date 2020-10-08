@@ -80,7 +80,7 @@ if (isset($_POST['reset-password'])) {
                 echo "Mailer Error: " . $mail->ErrorInfo;
             }else{
                 echo "
-                <p>An email has been sent to you with instructions on how to reset your password.</p>
+                <p class='bad'>An email has been sent to you with instructions on how to reset your password.</p>
                 <br /><br /><br />";
             }
         }

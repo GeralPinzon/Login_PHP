@@ -1,4 +1,4 @@
-<?php include('app_logic.php'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +19,7 @@
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="Enter your email">
             <input type="submit" name="reset-password" value="Send">
+            <?php include('app_logic.php'); ?>
         </form>
 
     </div>

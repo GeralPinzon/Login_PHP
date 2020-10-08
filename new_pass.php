@@ -67,17 +67,17 @@
 
             if(isset($_POST["email"]) && isset($_POST["action"]) &&
                 ($_POST["action"]=="update")){
-                $errors="";
+                $error="";
                 $pass1 = mysqli_real_escape_string($conexionMySQLi,$_POST["pass1"]);
                 $pass2 = mysqli_real_escape_string($conexionMySQLi,$_POST["pass2"]);
                 $email = $_POST["email"];
                 $curDate = date("Y-m-d H:i:s");
                 if ($pass1!=$pass2){
-                    $errors.= "Password do not match, both password should be same.";
+                    $error.= "Password do not match, both password should be same.";
                 }
-                if($errors!=""){
+                if($error!=""){
                     ?>
-                            <h3 class='bad'><?php echo $errors ?></h3>
+                            <h3 class='bad'><?php echo $error ?></h3>
                     <?php
                 }else{
                     //$pass1 = md5($pass1);

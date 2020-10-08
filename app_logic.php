@@ -22,7 +22,7 @@ if (isset($_POST['reset-password'])) {
             $results = mysqli_query($conexionMySQLi, $query);
             $row = mysqli_num_rows($results);
             if ($row == null) {
-                $errors .= "<h3 class='bad'>No user is registered with this email address!  </h3>";
+                $errors .= "No user is registered with this email address!";
             }
 
         }

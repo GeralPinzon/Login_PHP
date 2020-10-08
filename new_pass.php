@@ -77,7 +77,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     }
     if($error!=""){
         ?>
-                <div class='bad'>".$error."</div>
+                <div class='bad'>"<?php .$error. ?>"</div>
         <?php
     }else{
         //$pass1 = md5($pass1);

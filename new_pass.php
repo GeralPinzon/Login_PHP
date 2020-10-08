@@ -89,7 +89,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
         ?>
                 <h3 class="bad">Congratulations! Your password has been updated su2ccessfully.
                 <a href="/login/index.php">Click here</a> to Login.</h3>
-        
+
                 </div>
             </body>
         </html>

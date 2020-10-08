@@ -29,7 +29,7 @@
                                 The link is invalid/expired. Either you did not copy the correct link
                                 from the email, or you have already used the key in which case it is 
                                 deactivated.
-                                <a href="/enter_email.php">
+                                <a href="login/enter_email.php">
                                 Click here</a> to reset password.';
                 }else{
                     $row = mysqli_fetch_assoc($query);

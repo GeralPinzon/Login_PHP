@@ -58,7 +58,9 @@ Click here</a> to reset password.';
         }
     }
     if($error!=""){
-        echo "<h3 class='bad'>".$error."</h3>";
+        ?>
+            <h3 class='bad'>".$error."</h3>
+        <?php
     }
 } // isset email key validate end
 
@@ -74,7 +76,9 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
         $error.= "Password do not match, both password should be same.";
     }
     if($error!=""){
-        echo "<div class='bad'>".$error."</div>";
+        ?>
+                <div class='bad'>".$error."</div>
+        <?php
     }else{
         //$pass1 = md5($pass1);
         mysqli_query($conexionMySQLi,
@@ -82,10 +86,10 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
         );
 
         mysqli_query($conexionMySQLi,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
-
-        echo '<h3 class="bad">Congratulations! Your password has been updated successfully.
-        <a href="/login/index.php">Click here</a> to Login.</h3>';
         ?>
+                <h3 class="bad">Congratulations! Your password has been updated su2ccessfully.
+                <a href="/login/index.php">Click here</a> to Login.</h3>
+        
                 </div>
             </body>
         </html>

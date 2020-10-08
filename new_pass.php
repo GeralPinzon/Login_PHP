@@ -59,7 +59,7 @@ Click here</a> to reset password.';
     }
     if($error!=""){
         ?>
-            <h3 class='bad'>".$error."</h3>
+            <h3 class='bad'> <?php $error ?></h3>
         <?php
     }
 } // isset email key validate end
@@ -77,7 +77,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     }
     if($error!=""){
         ?>
-                <div class='bad'>"<?php .$error. ?>"</div>
+                <div class='bad'>"<php?.$error."</div>
         <?php
     }else{
         //$pass1 = md5($pass1);

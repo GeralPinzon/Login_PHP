@@ -15,8 +15,8 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
 <p>The link is invalid/expired. Either you did not copy the correct link
 from the email, or you have already used the key in which case it is 
 deactivated.</p>
-<p><a href="192.168.0.17/login/enter_email.php">
-Click here</a> to reset password.</p>';
+<a href="192.168.0.17/login/enter_email.php">
+Click here</a> to reset password.';
     }else{
         $row = mysqli_fetch_assoc($query);
         $expDate = $row['expDate'];
@@ -52,13 +52,13 @@ Click here</a> to reset password.</p>';
 
             <?php
         }else{
-            $error .= "<h2>Link Expired</h2>
-<p>The link is expired. You are trying to use the expired link which 
-as valid only 24 hours (1 days after request).<br /><br /></p>";
+            $error .= "Link Expired
+                The link is expired. You are trying to use the expired link which 
+                as valid only 24 hours (1 days after request).";
         }
     }
     if($error!=""){
-        echo "<h3 class='bad'>".$error."</h3><br />";
+        echo "<h3 class='bad'>".$error."</h3>";
     }
 } // isset email key validate end
 
@@ -71,11 +71,10 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     $email = $_POST["email"];
     $curDate = date("Y-m-d H:i:s");
     if ($pass1!=$pass2){
-        $error.= "<h3 class='bad'>Password do not match, both password should be same.<br /><br /></h3>";
-
+        $error.= "Password do not match, both password should be same.";
     }
     if($error!=""){
-        echo "<div class='bad'>".$error."</div><br />";
+        echo "<div class='bad'>".$error."</div>";
     }else{
         //$pass1 = md5($pass1);
         mysqli_query($conexionMySQLi,
@@ -84,8 +83,8 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
 
         mysqli_query($conexionMySQLi,"DELETE FROM `password_reset_temp` WHERE `email`='".$email."';");
 
-        echo '<h3 class="bad"><p>Congratulations! Your password has been updated successfully.</p>
-        <p><a href="/login/index.php">Click here</a> to Login.</p></h3><br />';
+        echo '<h3 class="bad">Congratulations! Your password has been updated successfully.
+        <a href="/login/index.php">Click here</a> to Login.</h3>';
         ?>
                 </div>
             </body>

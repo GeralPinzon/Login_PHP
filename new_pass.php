@@ -25,12 +25,12 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
     );
     $row = mysqli_num_rows($query);
     if ($row==""){
-        $error .= '<h2>Invalid Link</h2>
-<p>The link is invalid/expired. Either you did not copy the correct link
-from the email, or you have already used the key in which case it is 
-deactivated.</p>
-<a href="192.168.0.17/login/enter_email.php">
-Click here</a> to reset password.';
+        $error .= '<h3>Invalid Link</h3>
+                    The link is invalid/expired. Either you did not copy the correct link
+                    from the email, or you have already used the key in which case it is 
+                    deactivated.
+                    <a href="192.168.0.17/login/enter_email.php">
+                    Click here</a> to reset password.';
     }else{
         $row = mysqli_fetch_assoc($query);
         $expDate = $row['expDate'];
@@ -77,7 +77,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     }
     if($error!=""){
         ?>
-                <div class='bad'><?php $error ?></div>
+                <h3 class='bad'><?php $error ?></h3>
         <?php
     }else{
         //$pass1 = md5($pass1);

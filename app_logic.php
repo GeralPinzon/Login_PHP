@@ -46,7 +46,7 @@ if (isset($_POST['reset-password'])) {
             $output .= '<p>Please click on the following link to reset your password.</p>';
             $output .= '<p>-------------------------------------------------------------</p>';
             $output .= '<p><a href="http://'.ROOT_APPEND.'/login/new_pass.php?key=' . $key . '&email=' . $email . '&action=reset" target="_blank">
-                        Click here! to reset your password  - getHostName()</a></p>';
+                        Click here! to reset your password  -'. getHostName().'</a></p>';
             $output .= '<p>-------------------------------------------------------------</p>';
             $output .= '<p>Please be sure to copy the entire link into your browser.
                         The link will expire after 1 day for secu  rity reason.</p>';

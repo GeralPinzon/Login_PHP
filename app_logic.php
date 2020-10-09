@@ -6,7 +6,7 @@ require_once('/usr/share/php/PHPMailer/PHPMailer6/PHPMailer.php');
 require_once('/usr/share/php/PHPMailer/PHPMailer6/SMTP.php');
 require_once('/usr/share/php/PHPMailer/PHPMailer6/Exception.php');
 require_once('/usr/share/php/PHPMailer/PHPMailer6/autoload.php');
-define('ROOT_APPEND',gethostbyname("http://localhost/"));
+define('ROOT_APPEND',getHostByName(getHostName()));
 use PHPMailer\PHPMailer\PHPMailer;
 $errors = null;
 if (isset($_POST['reset-password'])) {
@@ -45,7 +45,7 @@ if (isset($_POST['reset-password'])) {
             $output = '<p>Dear user,</p>';
             $output .= '<p>Please click on the following link to reset your password.</p>';
             $output .= '<p>-------------------------------------------------------------</p>';
-            $output .= '<p><a href="http://'.ROOT_APPEND.'/login/new_pass.php?key=' . $key . '&email=' . $email . '&action=reset" target="_blank">
+            $output .= '<p><a href="http://'.ROOT_APPEND.'login/new_pass.php?key=' . $key . '&email=' . $email . '&action=reset" target="_blank">
                         Click here! to reset your password</a></p>';
             $output .= '<p>-------------------------------------------------------------</p>';
             $output .= '<p>Please be sure to copy the entire link into your browser.
